@@ -8,7 +8,7 @@ exports.createMovie = async(movieObject) => {
     }
 }
 
-exports.readMovie = async (filter) => {
+exports.readMovie = async (filterObj) => {
     try {
         if (filterObj) {
             return await Movie.findOne({where: filterObj})
