@@ -8,14 +8,32 @@ exports.createMovie = async(movieObject) => {
     }
 }
 
-exports.readMovie = async (filterObj) => {
+exports.readMovie = async (filterObject) => {
     try {
-        if (filterObj) {
-            return await Movie.findOne({where: filterObj})
+        if (filterObject) {
+            return await Movie.findOne({where: filterObject})
         } else {
             return await Movie.findAll()
         }
     } catch (error) {
+        console.log(error)
+    }
+}
+
+exports.updateMovie = async (movieObject, filterObject) => {
+    try {
+        await Movie.update(movieObject, {where: filterObject})
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
+exports.deleteMovie = async (filterObject) => {
+    try {
+        await Movie.destroy({where: filterObject})
+    }
+    catch (error) {
         console.log(error)
     }
 }
