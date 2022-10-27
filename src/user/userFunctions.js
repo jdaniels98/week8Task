@@ -11,7 +11,7 @@ exports.createUser = async(userObject) => {
 exports.readUser = async(filterObject) => {
     try {
       if (filterObject) {
-        return await User.findOne({ where: filterObject });
+        return await User.findOne({where: filterObject});
       } else {
         return await User.findAll();
       }
